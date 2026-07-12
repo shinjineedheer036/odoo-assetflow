@@ -35,8 +35,8 @@ const protect = async (req, res, next) => {
 
     req.user = user;
 
-    console.log("REQ.USER BEFORE NEXT:", req.user);
-    console.log("REQ.USER ROLE BEFORE NEXT:", req.user.role);
+    // console.log("REQ.USER BEFORE NEXT:", req.user);
+    // console.log("REQ.USER ROLE BEFORE NEXT:", req.user.role);
     next();
 
   } catch (error) {

@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 
 const authRoutes = require("./routes/authRoutes.js");
 const departmentRoutes = require("./routes/department.routes.js");
+const employeeRoutes = require("./routes/employee.routes.js");
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/departments", departmentRoutes);
+app.use("/api/employees", employeeRoutes);
 
 app.get("/", (req, res) => {
   res.json({
