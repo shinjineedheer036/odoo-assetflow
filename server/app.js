@@ -23,6 +23,9 @@ const bookingRoutes = require("./routes/booking.routes.js");
 // Maintenance Routes
 const maintenanceRoutes = require("./routes/maintenance.routes.js");
 
+// Resource Routes
+const resourceRoutes = require("./routes/resource.routes.js");
+
 // Common Middlewares
 const {
   requestLogger,
@@ -67,6 +70,9 @@ app.use("/api/bookings", bookingRoutes);
 
 // Maintenance
 app.use("/api/maintenance", maintenanceRoutes);
+
+// Resource
+app.use("/api/resources", resourceRoutes);
 
 // Health Check
 app.get("/", (req, res) => {
