@@ -10,42 +10,81 @@ import {
   FaBell,
 } from "react-icons/fa";
 
+import { Link, useLocation } from "react-router-dom";
+
 const Sidebar = () => {
+  const location = useLocation();
+
   const menu = [
-    { icon: <FaHome />, name: "Dashboard" },
-    { icon: <FaBuilding />, name: "Organization Setup" },
-    { icon: <FaLaptop />, name: "Assets" },
-    { icon: <FaExchangeAlt />, name: "Allocation & Transfer" },
-    { icon: <FaCalendarCheck />, name: "Resource Booking" },
-    { icon: <FaTools />, name: "Maintenance" },
-    { icon: <FaClipboardCheck />, name: "Audit" },
-    { icon: <FaChartBar />, name: "Reports" },
-    { icon: <FaBell />, name: "Notifications" },
+    {
+      icon: <FaHome />,
+      name: "Dashboard",
+      path: "/dashboard",
+    },
+    {
+      icon: <FaBuilding />,
+      name: "Organization Setup",
+      path: "/organization",
+    },
+    {
+      icon: <FaLaptop />,
+      name: "Assets",
+      path: "/assets",
+    },
+    {
+      icon: <FaExchangeAlt />,
+      name: "Allocation & Transfer",
+      path: "/allocation",
+    },
+    {
+      icon: <FaCalendarCheck />,
+      name: "Resource Booking",
+      path: "/booking",
+    },
+    {
+      icon: <FaTools />,
+      name: "Maintenance",
+      path: "/maintenance",
+    },
+    {
+      icon: <FaClipboardCheck />,
+      name: "Audit",
+      path: "/audit",
+    },
+    {
+      icon: <FaChartBar />,
+      name: "Reports",
+      path: "/reports",
+    },
+    {
+      icon: <FaBell />,
+      name: "Notifications",
+      path: "/notifications",
+    },
   ];
 
   return (
-    <div className="w-64 bg-[#0F172A] text-white min-h-screen">
-
+    <div className="w-64 min-h-screen bg-[#0F172A] text-white shadow-xl">
       <div className="text-3xl font-bold p-6 border-b border-slate-700">
         AssetFlow
       </div>
 
-      <div className="mt-6">
-
-        {menu.map((item, index) => (
-          <div
-            key={index}
-            className={`flex items-center gap-3 px-6 py-3 cursor-pointer transition hover:bg-blue-600 ${
-              index === 0 ? "bg-blue-600" : ""
+      <div className="mt-6 flex flex-col">
+        {menu.map((item) => (
+          <Link
+            key={item.name}
+            to={item.path}
+            className={`flex items-center gap-3 px-6 py-3 transition-all duration-200 ${
+              location.pathname === item.path
+                ? "bg-green-600 text-white"
+                : "hover:bg-slate-800 text-slate-300"
             }`}
           >
-            {item.icon}
-            {item.name}
-          </div>
+            <span className="text-lg">{item.icon}</span>
+            <span>{item.name}</span>
+          </Link>
         ))}
-
       </div>
-
     </div>
   );
 };
