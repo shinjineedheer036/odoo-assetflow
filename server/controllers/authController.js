@@ -1,8 +1,8 @@
-import bcrypt from "bcryptjs";
-import User from "../models/User.js";
-import generateToken from "../utils/generateToken.js";
+const bcrypt = require("bcryptjs");
+const User = require("../models/User.js");
+const generateToken = require("../utils/generateToken.js");
 
-export const signup = async (req, res) => {
+const signup = async (req, res) => {
   try {
     const { name, email, password } = req.body;
 
@@ -47,7 +47,7 @@ export const signup = async (req, res) => {
 };
 
 
-export const login = async (req, res) => {
+const login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -113,8 +113,10 @@ export const login = async (req, res) => {
 };
 
 
-export const getMe = async (req, res) => {
+const getMe = async (req, res) => {
   return res.status(200).json({
     user: req.user,
   });
 };
+
+module.exports = {signup, login, getMe};

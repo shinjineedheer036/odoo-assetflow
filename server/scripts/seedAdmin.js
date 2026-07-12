@@ -1,8 +1,8 @@
-import dotenv from "dotenv";
-import bcrypt from "bcryptjs";
+const dotenv = require("dotenv");
+const bcrypt = require("bcryptjs");
 
-import connectDB from "../config/db.js";
-import User from "../models/User.js";
+const connectDB = require("../config/db.js");
+const User = require("../models/User.js");
 
 dotenv.config();
 
