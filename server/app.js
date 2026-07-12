@@ -1,8 +1,8 @@
-import express from "express";
-import cors from "cors";
-import cookieParser from "cookie-parser";
+const express = require("express");
+const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
-import authRoutes from "./routes/authRoutes.js";
+const authRoutes = require("./routes/authRoutes.js");
 
 const app = express();
 
@@ -24,4 +24,4 @@ app.get("/", (req, res) => {
   });
 });
 
-export default app;
+module.exports = app;
